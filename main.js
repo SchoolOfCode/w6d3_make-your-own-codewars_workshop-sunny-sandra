@@ -27,22 +27,22 @@ There is never more than 13 (X) so that's the max number you need to worry about
 
 
 export function isChristmasCancelled(str) {
-  let array = str.split("");
-  let count = 0;
+  const regex = /[Xx]/g;
+  let array = str.match(regex);
+  let count = array.length;
+  
+//   array.forEach((letter)=>{
+//     if (letter === "X") {
+//       count++
+//     }
+//   })
 
-  array.forEach((letter)=>{
-    if (letter === "X") {
-      count++
-    }
-  })
-
-  if (count < 4) {
+  if (count < 4 && count > 0) {
     return "No, Ho, Ho :( because Christmas has been cancelled...."
-  } else if (count <= 12) {
+  } else if (count > 4 && count <= 12) {
     return "Santa Claus is coming... so still be good!"
-  } else {
+  } else if (count = 13) {
     return "Merry Christmas, you can have a mulled wine!"
   }
 }
 
-// console.log(isChristmasCancelled("ThXis is ouXr Christmas strinXg"))
